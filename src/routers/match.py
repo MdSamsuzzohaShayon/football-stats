@@ -1,6 +1,7 @@
 from datetime import datetime
 from fastapi import HTTPException, Query, APIRouter, Depends
 from sqlmodel import select
+from copy import copy
 from src.config.redis import get_redis
 from src.models import Match, MatchStats
 from src.config.database import SessionDep
@@ -132,13 +133,16 @@ async def update_match(
         if not match:
             raise HTTPException(status_code=404, detail="Match not found")
 
+        prev_match = copy(match)
+
         # Update match fields (only if provided in the update request)
+        # ============================================================================================================================================
         if match_update.score_team1 is not None:
             match.score_team1 = match_update.score_team1
         if match_update.score_team2 is not None:
             match.score_team2 = match_update.score_team2
-        if match_update.status is not None:
-            match.status = match_update.status
+        # if match_update.status is not None:
+        #     match.status = match_update.status
         if match_update.start_time is not None:
             match.start_time = match_update.start_time
         if match_update.half_time is not None:
@@ -152,36 +156,29 @@ async def update_match(
         if match_update.team2_id is not None:
             match.team2_id = match_update.team2_id
 
-        if match_update.status:
-            match.status = match_update.status
-            if match_update.status == MatchStatus.RUNNING and (match.start_time is None or match.start_time == ""):
-                match.start_time = datetime.now()
-            elif match_update.status == MatchStatus.HALF_TIME and match.half_time is None and match.half_time == "":
-                match.half_time = datetime.now()
-            elif match_update.status == MatchStatus.RUNNING and match.start_time is not None and match.start_time != "" and match.half_time is not None and match.half_time != "":
-                match.second_start = datetime.now()
-            elif match_update.status == MatchStatus.FULL_TIME and (match.end_time is None or match.end_time == ""):
-                match.end_time = datetime.now()
-
-        if match_update.start_time is not None and match_update.start_time != "":
+        # Offset time according to status
+        # ============================================================================================================================================
+        if match_update.start_time is not None and match_update.start_time != "" and (prev_match.start_time is None or prev_match.start_time == ""):
+            match.status = MatchStatus.RUNNING.value
             # Ensure MatchStats is created if the match is starting and doesn't already have stats
             match_stats = session.query(MatchStats).filter(MatchStats.match_id == match.id).first()
             if not match_stats:
                 match_stats = MatchStats(match_id=match.id)
                 session.add(match_stats)
 
-        elif not match.half_time and match_update.start_time is not None and match.start_time != "":
-            # Check start time according to start time set status
-            half_time = iso_date_to_offset(match_update.start_time, MatchStatus.RUNNING.value)
-            if half_time:
-                match.start_time = half_time
+        # Change status according to match time
+        # ============================================================================================================================================
+        if match_update.second_start is not None and match_update.second_start != "" and (prev_match.second_start is None or prev_match.second_start == ""):
+            match.status = MatchStatus.RUNNING.value
 
-        elif match_update.half_time is not None and match.half_time != "" and match.start_time:
-            end_time = iso_date_to_offset(match_update.half_time, MatchStatus.HALF_TIME.value)
-            if end_time:
-                match.end_time = end_time
+        if match_update.half_time is not None and match_update.half_time != "" and (prev_match.half_time is None or prev_match.half_time == ""):
+            match.status = MatchStatus.HALF_TIME.value
+
+        if match_update.end_time is not None and match_update.end_time != "" and (prev_match.end_time is None or prev_match.end_time == ""):
+            match.status = MatchStatus.FULL_TIME.value
 
         # Update MatchStats fields if stats_update is provided
+        # ============================================================================================================================================
         if stats_update:
             match_stats = session.query(MatchStats).filter(MatchStats.match_id == match.id).first()
             if not match_stats:
@@ -189,8 +186,8 @@ async def update_match(
 
             if stats_update.possession_team1 is not None:
                 match_stats.possession_team1 = stats_update.possession_team1
-            if stats_update.possession_team2 is not None:
-                match_stats.possession_team2 = stats_update.possession_team2
+                match_stats.possession_team2 = 100 - stats_update.possession_team1
+
             if stats_update.shots_team1 is not None:
                 match_stats.shots_team1 = stats_update.shots_team1
             if stats_update.shots_team2 is not None:
@@ -211,11 +208,13 @@ async def update_match(
             session.add(match_stats)
 
         # Commit changes to the database
+        # ============================================================================================================================================
         session.add(match)
         session.commit()
         session.refresh(match)
 
         # Cache the updated match details and publish updates
+        # ============================================================================================================================================
         await cache_match(redis, match)
 
         return match

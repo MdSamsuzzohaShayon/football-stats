@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()  # take environment variables from .env.
+import socketio
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,12 +11,12 @@ from src.routers.team import router as team_router
 from src.routers.player import router as player_router
 from src.routers.match import router as match_router
 from src.routers.auth import router as auth_router
-from sockets import sio  # Import the `sio` instance from `sockets.py`
-import socketio
+from src.sockets import sio  # Import the `sio` instance from `sockets.py`
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+
     create_db_and_tables()
     # Clear Redis database
     await redis_conn.flushdb()  # Clears all data in the Redis DB

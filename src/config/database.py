@@ -1,3 +1,4 @@
+import os
 from sqlmodel import create_engine, SQLModel
 from fastapi import Depends
 from sqlmodel import  Session
@@ -7,7 +8,7 @@ from typing import Annotated
 #
 # engine = create_engine(DATABASE_URL, echo=True)
 
-mysql_url = f"mysql+mysqlconnector://shayon:Test1234@localhost/football_stats"
+mysql_url = os.getenv("MYSQL_URI", None)
 
 engine = create_engine(mysql_url, echo=True)
 
