@@ -1,0 +1,204 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f6fa;
+    --success-color: #2ecc71;
+    --warning-color: #f1c40f;
+    --danger-color: #e74c3c;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: var(--text-primary);
+}
+
+.team-logo-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vs-badge {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--bs-primary);
+}
+
+/* Optional animation for the live status */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.status-live {
+    animation: pulse 2s infinite;
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), #2980b9);
+    color: white;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    border-radius: 0 0 20px 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.stats-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed) ease;
+    border: none;
+    overflow: hidden;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card .card-header {
+    background: var(--secondary-color);
+    border-bottom: none;
+    padding: 1rem;
+}
+
+.team-score {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 1rem;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    margin: 1rem 0;
+    transition: all var(--transition-speed) ease;
+}
+
+.team-score:focus {
+    transform: scale(1.05);
+    box-shadow: var(--card-shadow);
+}
+
+.match-status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.team-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.vs-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 1rem 0;
+    display: inline-block;
+}
+
+.stat-input {
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 0.5rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.stat-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.action-buttons {
+    position: sticky;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-top: 1px solid var(--secondary-color);
+    z-index: 1000;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+.stats-section {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .team-score {
+        font-size: 2rem;
+    }
+
+    .team-name {
+        font-size: 1.2rem;
+    }
+
+    .stats-section {
+        padding: 1rem;
+    }
+
+    .page-header {
+        padding: 1rem 0;
+    }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Status colors */
+.status-not-started { background-color: var(--secondary-color); color: var(--text-secondary); }
+.status-in-progress { background-color: var(--warning-color); color: white; }
+.status-completed { background-color: var(--success-color); color: white; }

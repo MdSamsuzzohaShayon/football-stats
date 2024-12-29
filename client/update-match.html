@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Match | Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/update-match.css">
+</head>
+
+<body>
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h2 class="mb-0">Update Match</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="admin.html" class="text-white">Dashboard</a></li>
+                            <li class="breadcrumb-item active text-white-50" aria-current="page">Update Match</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pb-5">
+        <form id="updateMatchForm">
+            <!-- Match Basic Information -->
+            <div class="py-4">
+                <div class="card shadow-lg rounded-4 p-4 animate-in">
+                    <!-- Teams and Score Section -->
+                    <div class="row g-4 mb-4 align-items-center">
+                        <!-- Team 1 -->
+                        <div class="col-md-4">
+                            <div class="text-center p-3 h-100 bg-light rounded-4">
+                                <div class="mb-3">
+                                    <div class="team-logo-circle mx-auto mb-3 bg-white shadow-sm">
+                                        <i class="fas fa-shield-alt fa-2x text-secondary"></i>
+                                    </div>
+                                    <h3 class="team-name h4 mb-3" id="team1Name"></h3>
+                                </div>
+                                <div class="input-group justify-content-center">
+                                    <span class="input-group-text bg-white fw-bold">Score</span>
+                                    <input type="number" class="form-control text-center w-25" id="score_team1" name="score_team1" min="0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Match Status -->
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="vs-badge mb-3 mx-auto d-flex align-items-center justify-content-center">
+                                    <span class="h3 mb-0 text-white">VS</span>
+                                </div>
+                                <select class="form-select form-select-lg mb-3 text-center" id="status" name="status">
+                                    <option value="not_started">Not Started</option>
+                                    <option value="running">
+                                        <span class="text-success">● </span>LIVE
+                                    </option>
+                                    <option value="half_time">Half Time</option>
+                                    <option value="full_time">Full Time</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Team 2 -->
+                        <div class="col-md-4">
+                            <div class="text-center p-3 h-100 bg-light rounded-4">
+                                <div class="mb-3">
+                                    <div class="team-logo-circle mx-auto mb-3 bg-white shadow-sm">
+                                        <i class="fas fa-shield-alt fa-2x text-secondary"></i>
+                                    </div>
+                                    <h3 class="team-name h4 mb-3" id="team2Name"></h3>
+                                </div>
+                                <div class="input-group justify-content-center">
+                                    <span class="input-group-text bg-white fw-bold">Score</span>
+                                    <input type="number" class="form-control text-center w-25" id="score_team2" name="score_team2" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Section -->
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-hourglass-start mb-2 text-primary fa-lg"></i>
+                                    <h5 class="card-title">Start Time</h5>
+                                    <input type="datetime-local" class="form-control" id="start_time" name="start_time">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-hourglass-half mb-2 text-primary fa-lg"></i>
+                                    <h5 class="card-title">Half Time</h5>
+                                    <input type="datetime-local" class="form-control" id="half_time" name="half_time">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-hourglass-half mb-2 text-primary fa-lg"></i>
+                                    <h5 class="card-title">Second Half Start</h5>
+                                    <input type="datetime-local" class="form-control" id="second_start" name="second_start">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-hourglass-end mb-2 text-primary fa-lg"></i>
+                                    <h5 class="card-title">End Time</h5>
+                                    <input type="datetime-local" class="form-control" id="end_time" name="end_time">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match Statistics -->
+            <div class="stats-section animate-in" style="animation-delay: 0.2s">
+                <h4 class="mb-4">Match Statistics</h4>
+                <div class="stats-grid">
+                    <!-- Stats cards here - same content as before but with updated styling -->
+                    <!-- Example of one stat card: -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Possession (%)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="possession_team1"
+                                        name="possession_team1" min="0" max="100">
+                                    <div class="stat-label" id="team1Name-possession"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="possession_team2"
+                                        name="possession_team2" min="0" max="100">
+                                    <div class="stat-label" id="team2Name-possession"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Shots -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Shots</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="shots_team1"
+                                        name="shots_team1" min="0">
+                                    <div class="stat-label" id="team1Name-shots"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="shots_team2"
+                                        name="shots_team2" min="0">
+                                    <div class="stat-label" id="team2Name-shots"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Shots on Target -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Shots on Target</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="shots_on_target_team1"
+                                        name="shots_on_target_team1" min="0">
+                                    <div class="stat-label" id="team1Name-shots-on-target"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="shots_on_target_team2"
+                                        name="shots_on_target_team2" min="0">
+                                    <div class="stat-label" id="team2Name-shots-on-target"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Corners -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Corners</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="corners_team1"
+                                        name="corners_team1" min="0">
+                                    <div class="stat-label" id="team1Name-corners"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="corners_team2"
+                                        name="corners_team2" min="0">
+                                    <div class="stat-label" id="team2Name-corners"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Yellow Cards -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Yellow Cards</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="yellow_cards_team1"
+                                        name="yellow_cards_team1" min="0">
+                                    <div class="stat-label" id="team1Name-yellow-cards"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="yellow_cards_team2"
+                                        name="yellow_cards_team2" min="0">
+                                    <div class="stat-label" id="team2Name-yellow-cards"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Red Cards -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Red Cards</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="red_cards_team1"
+                                        name="red_cards_team1" min="0">
+                                    <div class="stat-label" id="team1Name-red-cards"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="red_cards_team2"
+                                        name="red_cards_team2" min="0">
+                                    <div class="stat-label" id="team2Name-red-cards"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fouls -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Fouls</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="fouls_team1"
+                                        name="fouls_team1" min="0">
+                                    <div class="stat-label" id="team1Name-fouls"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="fouls_team2"
+                                        name="fouls_team2" min="0">
+                                    <div class="stat-label" id="team2Name-fouls"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offsides -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Offsides</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="offsides_team1"
+                                        name="offsides_team1" min="0">
+                                    <div class="stat-label" id="team1Name-offsides"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="offsides_team2"
+                                        name="offsides_team2" min="0">
+                                    <div class="stat-label" id="team2Name-offsides"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Passes -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Passes</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="passes_team1"
+                                        name="passes_team1" min="0">
+                                    <div class="stat-label" id="team1Name-passes"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="passes_team2"
+                                        name="passes_team2" min="0">
+                                    <div class="stat-label" id="team2Name-passes"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pass Accuracy -->
+                    <div class="stats-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Pass Accuracy (%)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="pass_accuracy_team1"
+                                        name="pass_accuracy_team1" min="0" max="100">
+                                    <div class="stat-label" id="team1Name-pass-accuracy"></div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control stat-input" id="pass_accuracy_team2"
+                                        name="pass_accuracy_team2" min="0" max="100">
+                                    <div class="stat-label" id="team2Name-pass-accuracy"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <div class="container">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="admin.html" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>Update Match
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/update-match.js"></script>
+</body>
+
+</html>

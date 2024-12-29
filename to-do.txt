@@ -1,0 +1,9 @@
+Create a football team and player statistical website with FastAPI, Redis, MySql.
+Use redis for
+    1. Caching a single player stats
+    2. Create a very basic user auth (Minimal)
+    3. Session management with redis for a user's favorite team
+    4. Show real time update to a match between 2 team using redis (Streaming information)
+    5. Rate Limiting with Redis
+
+Use redis whenever it is necessary.

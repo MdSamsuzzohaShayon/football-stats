@@ -1,0 +1,402 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "user1",
+            "hashed_password": "hashedpassword1"
+        },
+        {
+            "id": 2,
+            "username": "user2",
+            "hashed_password": "hashedpassword2"
+        }
+    ],
+  "teams": [
+    {
+      "id": 1,
+      "name": "Real Madrid",
+      "city": "Madrid"
+    },
+    {
+      "id": 2,
+      "name": "FC Barcelona",
+      "city": "Barcelona"
+    },
+    {
+      "id": 3,
+      "name": "Liverpool FC",
+      "city": "Liverpool"
+    },
+    {
+      "id": 4,
+      "name": "Chelsea FC",
+      "city": "London"
+    }
+  ],
+  "players": [
+    {
+      "id": 1,
+      "name": "Karim Benzema",
+      "birth": "1996-12-20T11:42:17.131Z",
+      "position": "striker",
+      "appearances": 500,
+      "goals": 300,
+      "assists": 120,
+      "team_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Luka Modric",
+      "birth": "1990-12-20T11:42:17.137Z",
+      "position": "central_midfielder",
+      "appearances": 450,
+      "goals": 50,
+      "assists": 100,
+      "team_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Thibaut Courtois",
+      "birth": "2008-12-20T11:42:17.137Z",
+      "position": "goalkeeper",
+      "appearances": 300,
+      "goals": 0,
+      "assists": 0,
+      "team_id": 1
+    },
+
+    {
+    "id": 4,
+    "name": "Dani Carvajal",
+    "birth": "1985-12-20T11:42:17.137Z",
+    "position": "right_back",
+    "appearances": 400,
+    "goals": 10,
+    "assists": 50,
+    "team_id": 1
+  },
+  {
+    "id": 5,
+    "name": "Éder Militão",
+    "birth": "1992-12-20T11:42:17.138Z",
+    "position": "centre_back",
+    "appearances": 150,
+    "goals": 8,
+    "assists": 5,
+    "team_id": 1
+  },
+  {
+    "id": 6,
+    "name": "David Alaba",
+    "birth": "2005-12-20T11:42:17.138Z",
+    "position": "centre_back",
+    "appearances": 200,
+    "goals": 15,
+    "assists": 30,
+    "team_id": 1
+  },
+  {
+    "id": 7,
+    "name": "Ferland Mendy",
+    "birth": "1986-12-20T11:42:17.138Z",
+    "position": "left_back",
+    "appearances": 150,
+    "goals": 5,
+    "assists": 10,
+    "team_id": 1
+  },
+  {
+    "id": 8,
+    "name": "Aurélien Tchouaméni",
+    "birth": "2008-12-20T11:42:17.138Z",
+    "position": "defensive_midfielder",
+    "appearances": 90,
+    "goals": 3,
+    "assists": 8,
+    "team_id": 1
+  },
+  {
+    "id": 9,
+    "name": "Toni Kroos",
+    "birth": "1989-12-20T11:42:17.138Z",
+    "position": "central_midfielder",
+    "appearances": 500,
+    "goals": 40,
+    "assists": 100,
+    "team_id": 1
+  },
+
+    {
+    "id": 10,
+    "name": "Jude Bellingham",
+    "birth": "1988-12-20T11:42:17.138Z",
+    "position": "attacking_midfielder",
+    "appearances": 50,
+    "goals": 15,
+    "assists": 10,
+    "team_id": 1
+  },
+  {
+    "id": 11,
+    "name": "Vinícius Júnior",
+    "birth": "1979-12-20T11:42:17.138Z",
+    "position": "left_winger",
+    "appearances": 250,
+    "goals": 60,
+    "assists": 70,
+    "team_id": 1
+  },
+  {
+    "id": 12,
+    "name": "Rodrygo",
+    "birth": "1984-12-20T11:42:17.138Z",
+    "position": "right_winger",
+    "appearances": 200,
+    "goals": 45,
+    "assists": 50,
+    "team_id": 1
+  },
+  {
+    "id": 13,
+    "name": "Joselu",
+    "birth": "1990-12-20T11:42:17.138Z",
+    "position": "striker",
+    "appearances": 80,
+    "goals": 25,
+    "assists": 8,
+    "team_id": 1
+  },
+  {
+    "id": 14,
+    "name": "Federico Valverde",
+    "birth": "1985-12-20T11:42:17.138Z",
+    "position": "central_midfielder",
+    "appearances": 250,
+    "goals": 20,
+    "assists": 30,
+    "team_id": 1
+  },
+    {
+    "id": 15,
+    "name": "Raphinha",
+    "birth": "1986-12-20T11:42:17.138Z",
+    "position": "right_winger",
+    "appearances": 90,
+    "goals": 20,
+    "assists": 25,
+    "team_id": 2
+  },
+  {
+    "id": 16,
+    "name": "Robert Lewandowski",
+    "birth": "1991-12-20T11:42:17.138Z",
+    "position": "striker",
+    "appearances": 90,
+    "goals": 60,
+    "assists": 10,
+    "team_id": 2
+  },
+
+    {
+      "id": 17,
+      "name": "Lionel Messi",
+      "birth": "1997-12-20T11:42:17.138Z",
+      "position": "centre_forward",
+      "appearances": 700,
+      "goals": 600,
+      "assists": 250,
+      "team_id": 2
+    },
+
+    {
+    "id": 18,
+    "name": "Ronald Araújo",
+    "birth": "2002-12-20T11:42:17.138Z",
+    "position": "centre_back",
+    "appearances": 120,
+    "goals": 5,
+    "assists": 3,
+    "team_id": 2
+  },
+  {
+    "id": 19,
+    "name": "Jules Koundé",
+    "birth": "1997-12-20T11:42:17.139Z",
+    "position": "right_back",
+    "appearances": 90,
+    "goals": 3,
+    "assists": 5,
+    "team_id": 2
+  },
+  {
+    "id": 20,
+    "name": "Andreas Christensen",
+    "birth": "1980-12-20T11:42:17.139Z",
+    "position": "centre_back",
+    "appearances": 150,
+    "goals": 4,
+    "assists": 2,
+    "team_id": 2
+  },
+  {
+    "id": 21,
+    "name": "Alejandro Balde",
+    "birth": "2006-12-20T11:42:17.139Z",
+    "position": "left_back",
+    "appearances": 70,
+    "goals": 2,
+    "assists": 10,
+    "team_id": 2
+  },
+
+    {
+    "id": 22,
+    "name": "Frenkie de Jong",
+    "birth": "1980-12-20T11:42:17.139Z",
+    "position": "central_midfielder",
+    "appearances": 200,
+    "goals": 15,
+    "assists": 30,
+    "team_id": 2
+  },
+  {
+    "id": 23,
+    "name": "Pedri",
+    "birth": "1985-12-20T11:42:17.138Z",
+    "position": "central_midfielder",
+    "appearances": 100,
+    "goals": 10,
+    "assists": 15,
+    "team_id": 2
+  },
+  {
+    "id": 24,
+    "name": "Gavi",
+    "birth": "1986-12-20T11:42:17.138Z",
+    "position": "central_midfielder",
+    "appearances": 80,
+    "goals": 6,
+    "assists": 8,
+    "team_id": 2
+  },
+
+    {
+      "id": 25,
+      "name": "Sergio Busquets",
+      "birth": "1988-12-20T11:42:17.139Z",
+      "position": "central_midfielder",
+      "appearances": 550,
+      "goals": 20,
+      "assists": 80,
+      "team_id": 2
+    },
+    {
+      "id": 26,
+      "name": "Marc-André ter Stegen",
+      "birth": "1997-12-20T11:42:17.139Z",
+      "position": "goalkeeper",
+      "appearances": 350,
+      "goals": 0,
+      "assists": 0,
+      "team_id": 2
+    },
+    {
+      "id": 27,
+      "name": "Mohamed Salah",
+      "birth": "1993-12-20T11:42:17.139Z",
+      "position": "centre_forward",
+      "appearances": 300,
+      "goals": 200,
+      "assists": 70,
+      "team_id": 3
+    },
+    {
+      "id": 28,
+      "name": "Jordan Henderson",
+      "birth": "1997-12-20T11:42:17.139Z",
+      "position": "central_midfielder",
+      "appearances": 400,
+      "goals": 50,
+      "assists": 60,
+      "team_id": 3
+    },
+    {
+      "id": 29,
+      "name": "Alisson Becker",
+      "birth": "1987-12-20T11:42:17.139Z",
+      "position": "goalkeeper",
+      "appearances": 250,
+      "goals": 0,
+      "assists": 0,
+      "team_id": 3
+    },
+    {
+      "id": 30,
+      "name": "Raheem Sterling",
+      "birth": "1995-12-20T11:42:17.139Z",
+      "position": "centre_forward",
+      "appearances": 200,
+      "goals": 70,
+      "assists": 50,
+      "team_id": 4
+    },
+    {
+      "id": 31,
+      "name": "Enzo Fernández",
+      "birth": "1988-12-20T11:42:17.139Z",
+      "position": "central_midfielder",
+      "appearances": 100,
+      "goals": 15,
+      "assists": 20,
+      "team_id": 4
+    },
+    {
+      "id": 32,
+      "name": "Kepa Arrizabalaga",
+      "birth": "1982-12-20T11:42:17.139Z",
+      "position": "goalkeeper",
+      "appearances": 150,
+      "goals": 0,
+      "assists": 0,
+      "team_id": 4
+    }
+  ],
+
+    "matches": [
+        {
+            "id": 1,
+            "team1_id": 1,
+            "team2_id": 2,
+            "score_team1": 1,
+            "score_team2": 2,
+            "status": "full_time",
+            "start_time": "2024-12-14T15:00:00Z",
+            "half_time": "2024-12-14T15:00:00Z",
+            "second_start": "2024-12-14T15:00:00Z",
+            "end_time": "2024-12-14T15:00:00Z"
+        }
+    ],
+    "match_stats": [
+        {
+            "id": 1,
+            "match_id": 1,
+            "possession_team1": 45,
+            "possession_team2": 55,
+            "shots_team1": 10,
+            "shots_team2": 12,
+            "shots_on_target_team1": 4,
+            "shots_on_target_team2": 6,
+            "corners_team1": 3,
+            "corners_team2": 5,
+            "yellow_cards_team1": 1,
+            "yellow_cards_team2": 2
+        }
+    ],
+    "user_match_links": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "match_id": 1
+        }
+    ]
+}

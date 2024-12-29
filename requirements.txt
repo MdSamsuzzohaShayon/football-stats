@@ -1,0 +1,11 @@
+fastapi==0.115.2
+uvicorn[standard]
+sqlmodel==0.0.22
+mysql_connector_python==9.0.0
+redis==5.1.1
+python_jose==3.3.0
+bcrypt==4.2.0
+passlib==1.7.4
+fastapi_limiter==0.1.6
+python-socketio==5.11.4
+python-socketio-client==1.1

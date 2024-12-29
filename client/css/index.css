@@ -1,0 +1,46 @@
+:root {
+    --primary-color: #37003c;
+    --secondary-color: #ff2882;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+main{
+    min-height: 80vh !important;
+}
+
+.match-card {
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.date-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.loading {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading.active {
+    display: flex;
+}
