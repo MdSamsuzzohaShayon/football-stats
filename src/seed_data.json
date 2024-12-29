@@ -374,7 +374,15 @@
             "half_time": "2024-12-14T15:00:00Z",
             "second_start": "2024-12-14T15:00:00Z",
             "end_time": "2024-12-14T15:00:00Z"
-        }
+        },
+        {
+          "id": 2,
+          "team1_id": 1,
+          "team2_id": 2,
+          "score_team1": 0,
+          "score_team2": 0,
+          "status": "not_started"
+      }
     ],
     "match_stats": [
         {

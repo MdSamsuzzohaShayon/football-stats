@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()  # take environment variables from .env.
+
 import json
 import os
 from sqlmodel import SQLModel
