@@ -1,4 +1,5 @@
 import json
+import os
 from sqlmodel import SQLModel
 from fastapi import Depends
 from typing import Annotated
@@ -7,7 +8,7 @@ from src.models import User, Team, Player, Match, MatchStats, UserMatchLink  # I
 from datetime import datetime
 
 # Database connection URL
-mysql_url = f"mysql+mysqlconnector://shayon:Test1234@localhost/football_stats"
+mysql_url = os.getenv("MYSQL_URI", None)
 engine = create_engine(mysql_url, echo=True)
 
 
